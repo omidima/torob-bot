@@ -1,0 +1,5 @@
+*.ipynb
+.env
+env
+db.json
+data.json
