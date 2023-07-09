@@ -2,7 +2,7 @@
 
 torob has a product search engain on iranian online store. this engain have a public api resource can get from header of html file in script tags or use the api.torob.ir domain.
 
-to this script we use the web page scrapeing and extract product information and get product more_product_url filed for use infomation from page.
+to this script we use the web page scrapeing and extract product information and get product more_product_url for use infomation from page.
 
 ## Solutions:
 - Get categories list
