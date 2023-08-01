@@ -9,6 +9,10 @@ to this script we use the web page scrapeing and extract product information and
     for get categories list we need to scaping on the home page of torob.com. we use javascript script for extracting this information. you can find here:
     `/utils/categories.js`
 
+## Getting API_KEY for auto description creator
+you can enable generate_auto_description for products in .env file but for use this option you need get Narangi API_KEY.
+for getting api_key you need register to [narangi developer panel](dev.narangi.net).
+
 # Getting start:
 run this codes for config python virtual envirement.
 - `python -m venv .venv` or `python3 -m venv .venv`
