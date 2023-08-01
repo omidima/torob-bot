@@ -45,8 +45,6 @@ class VarientItem:
 
 @dataclass
 class VarientDto:
-
-    
     title: str
     items: List[VarientItem]
 

@@ -2,8 +2,8 @@ import json
 from typing import Union
 import requests
 from tinydb import TinyDB, Query
-from src.config import api_key, generate_auto_desc
-from src.models import CategoryProductDTO, ProductDTO, CategoryDto, VarientItem
+from config import api_key, generate_auto_desc
+from models import CategoryProductDTO, ProductDTO, CategoryDto, VarientItem
 
 class AppUrls:
     base_url = "https://api.torob.com/v4"
@@ -74,7 +74,9 @@ you have product with this name: {title}. write am article for this product to p
         data = []
         if (response):
             for item in response:
-                data.append(CategoryProductDTO(**item))
+                c = CategoryProductDTO(**item)
+                c.category_id = category.id
+                data.append(c)
             return data
         return None
 
@@ -101,6 +103,7 @@ you have product with this name: {title}. write am article for this product to p
             "max_price": response['max_price'],
             "buy_box_price_text": response['buy_box_price_text'],
             "variants": response['variants'],
+            "categroy" : item.category_id,
             "regular_price": min_offer['price'],
             "description": self._generate_product_desc(title=response['name1']) if generate_auto_desc else response['name1'],
             "short_description": response['name1'],
@@ -181,3 +184,10 @@ you have product with this name: {title}. write am article for this product to p
         else:
             return True
 
+
+if __name__ == "__main__":
+    item = TorobBot()
+    category_products = item.get_category_products_object()
+    for p in category_products:
+        product = item.get_product(p)
+        print(product)

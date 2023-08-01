@@ -3,6 +3,7 @@ from typing import Union
 
 @dataclass
 class CategoryProductDTO:
+    category_id: Union[str,None] = None
     image_url: Union[str,None] = None
     discount_info: Union[list,None] = None
     random_key: Union[str,None] = None
